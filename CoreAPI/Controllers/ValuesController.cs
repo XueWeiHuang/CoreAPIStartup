@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreAPI.Controllers
@@ -10,11 +11,7 @@ namespace CoreAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public class ObjectToSend
-        {
-            public string Data1 { get; set; }
-            public string Data2 { get; set; }
-        }
+
 
         // GET api/values
         [HttpGet]
