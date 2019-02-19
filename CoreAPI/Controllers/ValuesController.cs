@@ -10,18 +10,27 @@ namespace CoreAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public class ObjectToSend
+        {
+            public string Data1 { get; set; }
+            public string Data2 { get; set; }
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<ObjectToSend>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<ObjectToSend>{
+                new ObjectToSend {Data1="value1", Data2="value 2" },
+                new ObjectToSend{Data1="value 3", Data2="value4"}
+            };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<ObjectToSend> Get(int id)
         {
-            return "value";
+            return new ObjectToSend { Data1 = "this is from whatever", Data2 = "good start" };
         }
 
         // POST api/values
