@@ -11,6 +11,20 @@ namespace CoreAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly AppDbContext context;
+        public ValuesController(AppDbContext appDbContext)
+        {
+            context = appDbContext;
+            //here is just populate some sample data usign in memory database as it will be gone everytime program runs; if it exists, dont bother
+            if (context.ObjectsToSend.Count() == 0)
+            {
+                context.ObjectsToSend.AddRange(new List<ObjectToSend>
+                { new ObjectToSend{Data1="this is using contructor", Data2="pay attention to dependency injection"},
+                new ObjectToSend{Data1="interview question: what is dependency injection", Data2="how to use it"}, }
+                    );
+                context.SaveChanges();
+            }
+        }
 
 
         // GET api/values

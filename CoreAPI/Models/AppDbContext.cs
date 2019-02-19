@@ -9,6 +9,7 @@ namespace CoreAPI.Models
     public class AppDbContext:DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        public DbSet<ObjectToSend> ObjectToSend { get; set; }
+        //记得负数这里
+        public DbSet<ObjectToSend> ObjectsToSend { get; set; }
     }
 }
